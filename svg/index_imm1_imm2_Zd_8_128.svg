@@ -54,7 +54,7 @@
 <rect fill="none" height="24" stroke="#405C86" stroke-width="2" width="24" x="450" y="66" />
 <text class="register-name" x="80" y="78">imm2</text>
 <text class="intrinsic-name" x="80" y="90">step</text>
-<text class="register-number" x="10" y="78">(1)</text>
+<text class="register-number" x="10" y="78">(2)</text>
 <rect fill="#DEE6F1" height="24" width="24" x="450" y="138" />
 <rect fill="none" height="24" stroke="#405C86" stroke-width="2" width="24" x="450" y="138" />
 <text class="small-label" x="462" y="151">b</text>
@@ -105,7 +105,7 @@
 <text class="label-7px" x="102" y="151">b+15s</text>
 <text class="register-name" x="80" y="150">Zd</text>
 <text class="intrinsic-name" x="80" y="162">returns</text>
-<text class="register-number" x="10" y="150">(2)</text>
+<text class="register-number" x="10" y="150">(3)</text>
 <line marker-end="url(#arrowhead)" stroke="none" x1="462" x2="462" y1="90.5" y2="137" />
 <line marker-end="url(#arrowhead)" stroke="none" x1="462" x2="438" y1="90.5" y2="137" />
 <line marker-end="url(#arrowhead)" stroke="none" x1="462" x2="414" y1="90.5" y2="137" />
