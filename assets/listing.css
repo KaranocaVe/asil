@@ -91,3 +91,18 @@ table a {
 #header a {
     color: #000;
 }
+
+@page {
+    size: landscape;
+    margin: 12mm;
+}
+
+@media print {
+    .page-actions {
+        display: none !important;
+    }
+
+    .t thead {
+        position: static;
+    }
+}

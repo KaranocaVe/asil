@@ -1,4 +1,21 @@
 (function () {
+    function ensureTopToolsHost() {
+        var host = document.getElementById("page-tools-top");
+
+        if (!host) {
+            host = document.createElement("div");
+            host.id = "page-tools-top";
+            host.className = "page-tools-top";
+            document.body.insertBefore(host, document.body.firstChild);
+        }
+
+        return host;
+    }
+
+    function exportCurrentPageAsPdf() {
+        window.print();
+    }
+
     function useLowDPI() {
         Array.prototype.forEach.call(document.getElementsByTagName("img"), function (img) {
             img.src = img.src.replace("/svg/", "/lowdpi/");
@@ -30,13 +47,20 @@
 
     function initDpiToggle() {
         var host = document.getElementById("dpi-toggle");
+        var topToolsHost;
         if (!host) {
             return;
         }
 
-        host.innerHTML =
+        topToolsHost = ensureTopToolsHost();
+
+        host.innerHTML = "";
+        topToolsHost.innerHTML =
+            '<div class="page-actions page-actions-top">' +
             '<a href="javascript:switchToHighDPI()" id="highdpi">Switch to High-DPI</a>' +
-            '<a href="javascript:switchToLowDPI()" id="lowdpi">Switch to Low-DPI</a><br>';
+            '<a href="javascript:switchToLowDPI()" id="lowdpi">Switch to Low-DPI</a>' +
+            '<a href="javascript:exportCurrentPageAsPdf()" id="exportpdf">Export current page as PDF</a>' +
+            '</div>';
 
         useHighDPI();
         if (localStorage.getItem("dpi") === "low") {
@@ -46,6 +70,7 @@
 
     window.switchToLowDPI = switchToLowDPI;
     window.switchToHighDPI = switchToHighDPI;
+    window.exportCurrentPageAsPdf = exportCurrentPageAsPdf;
 
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", initDpiToggle);

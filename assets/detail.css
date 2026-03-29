@@ -45,3 +45,38 @@ canvas {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
 }
+
+.page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.page-tools-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 14px;
+}
+
+.page-actions-top {
+    margin-top: 0;
+    justify-content: flex-end;
+}
+
+@page {
+    margin: 12mm;
+}
+
+@media print {
+    .page-actions {
+        display: none !important;
+    }
+
+    img,
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
