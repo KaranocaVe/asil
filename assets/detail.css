@@ -1,0 +1,47 @@
+td {
+    background-color: #FFFFFF;
+    font-size: 9pt;
+}
+
+table {
+    background-color: #ccc;
+}
+
+td.empty {
+    background-color: #ddd;
+}
+
+th {
+    background-color: #eee;
+    min-width: 48px;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 10pt;
+}
+
+a {
+    color: #000;
+    white-space: nowrap;
+}
+
+.intrinsics {
+    color: #6778ED;
+}
+
+.group:not(:first-child) {
+    margin-top: 2px;
+}
+
+img,
+canvas {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+canvas {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
