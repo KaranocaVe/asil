@@ -539,15 +539,11 @@ function HaveSMEF16F16() { return document.getElementById("cbHaveSMEF16F16").che
 function HaveSMEF64F64() { return document.getElementById("cbHaveSMEF64F64").checked; }
 function HaveSMEI16I64() { return document.getElementById("cbHaveSMEI16I64").checked; }
 function HaveSVEB16B16() { return document.getElementById("cbHaveSVEB16B16").checked; }
-var wasUnavailable = {};
 function setAvailable(className, isAvailable) {
-	if ((wasUnavailable[className] && isAvailable) || (!wasUnavailable[className] && !isAvailable)) {		if (isAvailable) {
-			for (var e of document.getElementsByClassName(className)) { e.classList.remove("unavailable"); }
-		} else {
-			for (var e of document.getElementsByClassName(className)) { e.classList.add("unavailable"); }
-		}
+	for (var e of document.getElementsByClassName(className)) {
+		e.classList.toggle("unavailable", !isAvailable);
+		e.classList.toggle("hidden-unavailable", !isAvailable && window.shouldHideUnavailable && window.shouldHideUnavailable());
 	}
-	wasUnavailable[className] = !isAvailable;
 }
 function updateHighlighting() {
 	setAvailable("f0", (DebugStateEnabled() && HaveSME2() && SMEEnabled() && SMEZT0Enabled()));
@@ -568,6 +564,7 @@ function updateHighlighting() {
 	setAvailable("f15", (HaveSME2p1() && StreamingSVEEnabled() && ZAEnabled()));
 	setAvailable("f16", (HaveSMEF64F64() && StreamingSVEEnabled() && ZAEnabled()));
 	setAvailable("f17", (HaveSMEI16I64() && StreamingSVEEnabled() && ZAEnabled()));
+	if (window.refreshAvailabilityRows) { window.refreshAvailabilityRows(); }
 }
 setTimeout( function () { updateHighlighting(); }, 0);
 setTimeout( function () { updateHighlighting(); }, 100);

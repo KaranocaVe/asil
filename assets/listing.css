@@ -70,6 +70,40 @@ table a {
     opacity: 40%;
 }
 
+.hidden-unavailable,
+.row-hidden-unavailable,
+.table-hidden-unavailable,
+.heading-hidden-unavailable {
+    display: none !important;
+}
+
+.page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.page-tools-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 14px;
+}
+
+.page-actions-top {
+    margin-top: 0;
+    justify-content: flex-end;
+}
+
+.page-actions-toggle {
+    white-space: nowrap;
+}
+
+.page-actions-toggle input {
+    margin-right: 6px;
+}
+
 .target th {
     padding-right: 20px;
     text-align: left;
